@@ -2,6 +2,23 @@
     "title": "Navigation in Terminal Apps",
     "rules": [
         {
+            "description": "Ignore Control+Tab",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "tab",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ]
+                        }
+                    },
+                    "conditions": [ <%= frontmost_application_if("terminal") %> ]
+                }
+            ]
+        },
+        {
             "description": "⌘ + ← | Move cursor to line begin",
             "manipulators": [
                 {
